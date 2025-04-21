@@ -990,10 +990,12 @@ body {
     0% {
         opacity: 0;
         transform: scale(0.95);
+        visibility: hidden;
     }
     100% {
         opacity: 1;
         transform: scale(1);
+        visibility: visible;
     }
 }
 
@@ -1074,17 +1076,20 @@ body {
 .animation-out.style-2 > .text-content {
     animation: style2-content-entrance var(--alt-0-animation-time) cubic-bezier(0.19, 0.76, 0.32, 1) reverse forwards;
     pointer-events: none;
+    animation-delay: 0s;
 }
 
 .animation-out.style-2::after {
     animation: disco-ball-entrance var(--alt-0-animation-time) cubic-bezier(0.19, 0.76, 0.32, 1) reverse forwards;
     pointer-events: none;
+    animation-delay: 0s;
 }
 
 .animation-out.style-2.right > .logo,
 .animation-out.style-2.right > .text-content {
     animation: style2-content-entrance-right var(--alt-0-animation-time) cubic-bezier(0.19, 0.76, 0.32, 1) reverse forwards;
     pointer-events: none;
+    animation-delay: 0s;
 }
 
 /* Simple hide state after animation completes */
