@@ -810,6 +810,42 @@ body {
     transition: none !important;
     opacity: 0;
     transform: scale(0.95);
+    visibility: hidden;
+}
+
+/* Active state for Style 2 */
+.style-2.active {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
+
+/* Hide state for Style 2 */
+.style-2.hide {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Animation states for Style 2 */
+.animation-in.style-2 {
+    animation: style2-entrance var(--alt-0-animation-time) cubic-bezier(0.19, 0.76, 0.32, 1) forwards;
+    visibility: visible;
+}
+
+.animation-out.style-2 {
+    animation: style2-entrance var(--alt-0-animation-time) cubic-bezier(0.19, 0.76, 0.32, 1) reverse forwards;
+    pointer-events: none;
+}
+
+/* Ensure content is hidden when parent is hidden */
+.style-2.hide > * {
+    display: none;
+}
+
+/* Ensure content is visible when parent is active */
+.style-2.active > * {
+    display: block;
 }
 
 .style-2 > .graph-1 {
