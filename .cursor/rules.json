@@ -1,0 +1,145 @@
+{
+  "rules": [
+    {
+      "name": "lower-thirds-visibility",
+      "description": "Controls the visibility and animation of lower thirds",
+      "triggers": [
+        {
+          "type": "file",
+          "pattern": "**/*.js",
+          "content": "active|hide|switchOn|animationIn|animationOut"
+        }
+      ],
+      "actions": [
+        {
+          "type": "snippet",
+          "name": "Show Lower Third",
+          "snippet": "this.switchOn = true;\nthis.active = true;\nthis.hide = false;\nthis.animationIn = true;"
+        },
+        {
+          "type": "snippet",
+          "name": "Hide Lower Third",
+          "snippet": "this.active = false;\nthis.animationOut = true;\nsetTimeout(() => {\n  this.hide = true;\n}, this.animationTime * 1000);"
+        }
+      ]
+    },
+    {
+      "name": "lower-thirds-timing",
+      "description": "Manages timing parameters for lower thirds",
+      "triggers": [
+        {
+          "type": "file",
+          "pattern": "**/*.js",
+          "content": "animationTime|activeTime|inactiveTime"
+        }
+      ],
+      "actions": [
+        {
+          "type": "snippet",
+          "name": "Set Timing Parameters",
+          "snippet": "this.animationTime = 2; // seconds\nthis.activeTime = 25; // seconds\nthis.inactiveTime = 420; // seconds"
+        }
+      ]
+    },
+    {
+      "name": "lower-thirds-automation",
+      "description": "Controls automatic features of lower thirds",
+      "triggers": [
+        {
+          "type": "file",
+          "pattern": "**/*.js",
+          "content": "autoTrigger|autoLoad|oneShot"
+        }
+      ],
+      "actions": [
+        {
+          "type": "snippet",
+          "name": "Enable Auto Features",
+          "snippet": "this.autoTrigger = true; // Auto show when slot loaded\nthis.autoLoad = true; // Auto load content when slot selected\nthis.oneShot = false; // Show repeatedly (true for one-time show)"
+        }
+      ]
+    },
+    {
+      "name": "lower-thirds-preview",
+      "description": "Manages preview mode settings",
+      "triggers": [
+        {
+          "type": "file",
+          "pattern": "**/*.js",
+          "content": "enabledPreview|previewOn"
+        }
+      ],
+      "actions": [
+        {
+          "type": "snippet",
+          "name": "Enable Preview Mode",
+          "snippet": "this.enabledPreview = true;\nthis.previewOn = true;"
+        }
+      ]
+    },
+    {
+      "name": "lower-thirds-elements",
+      "description": "Defines human-readable names for lower third elements",
+      "triggers": [
+        {
+          "type": "file",
+          "pattern": "**/*.html",
+          "content": "graph-1|graph-2|text-content|text-mask"
+        }
+      ],
+      "actions": [
+        {
+          "type": "snippet",
+          "name": "Define Lower Third Elements",
+          "snippet": "<!-- Lower Third Container -->\n<div class=\"lower-third-container\">\n  <!-- Logo Section -->\n  <div class=\"logo-section\">\n    <img :src=\"logoSrc\" />\n  </div>\n  \n  <!-- Left Decoration -->\n  <div class=\"left-decoration\"></div>\n  \n  <!-- Text Content Section -->\n  <div class=\"text-content\">\n    <!-- Name Section -->\n    <div class=\"name-section\">\n      <div class=\"name\">{{name.split('|')[0].trim()}}</div>\n      <div class=\"location\" v-if=\"name.includes('|')\">{{name.split('|')[1].trim()}}</div>\n    </div>\n    \n    <!-- Info Section -->\n    <div class=\"info-section\" v-if=\"info.trim()\">\n      <div class=\"info\">{{info}}</div>\n    </div>\n  </div>\n  \n  <!-- Right Decoration -->\n  <div class=\"right-decoration\"></div>\n</div>"
+        }
+      ]
+    },
+    {
+      "name": "lower-thirds-location",
+      "description": "Defines location-related elements and their handling",
+      "triggers": [
+        {
+          "type": "file",
+          "pattern": "**/*.{js,html}",
+          "content": "location|split('|')"
+        }
+      ],
+      "actions": [
+        {
+          "type": "snippet",
+          "name": "Location Handling",
+          "snippet": "// Location handling in JavaScript\nconst nameParts = name.split('|');\nconst displayName = nameParts[0].trim();\nconst location = nameParts.length > 1 ? nameParts[1].trim() : '';\n\n// Location display in HTML\n<div class=\"location-info\">\n  <div class=\"name\">{{displayName}}</div>\n  <div class=\"location\" v-if=\"location\">\n    <span class=\"location-icon\">📍</span>\n    {{location}}\n  </div>\n</div>"
+        },
+        {
+          "type": "snippet",
+          "name": "Location Styling",
+          "snippet": "/* Location styling in CSS */\n.location-info {\n  display: flex;\n  flex-direction: column;\n  gap: 0.25em;\n}\n\n.location {\n  display: flex;\n  align-items: center;\n  gap: 0.5em;\n  font-size: 0.9em;\n  color: var(--location-color, #666);\n}\n\n.location-icon {\n  font-size: 1.1em;\n}"
+        }
+      ]
+    },
+    {
+      "name": "lower-thirds-disco-effects",
+      "description": "Defines disco ball background effects for different lower third styles",
+      "triggers": [
+        {
+          "type": "file",
+          "pattern": "**/*.{js,css}",
+          "content": "style-1|style-2|background|disco"
+        }
+      ],
+      "actions": [
+        {
+          "type": "snippet",
+          "name": "Disco Ball Animation",
+          "snippet": "/* Disco Ball Background Effects */\n\n/* Style 1: Full Background Disco Effect */\n.style-1 .disco-background {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle at center, \n    rgba(255, 255, 255, 0.1) 0%,\n    rgba(255, 255, 255, 0.05) 20%,\n    transparent 60%);\n  animation: discoRotate 20s linear infinite;\n  pointer-events: none;\n}\n\n/* Style 2: Disco Ball Accent Effect */\n.style-2 .disco-accent {\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 40px;\n  height: 40px;\n  background: radial-gradient(circle at center,\n    rgba(255, 255, 255, 0.8) 0%,\n    rgba(255, 255, 255, 0.4) 50%,\n    transparent 100%);\n  animation: discoPulse 3s ease-in-out infinite;\n  border-radius: 50%;\n}\n\n@keyframes discoRotate {\n  from { transform: rotate(0deg); }\n  to { transform: rotate(360deg); }\n}\n\n@keyframes discoPulse {\n  0% { transform: translateY(-50%) scale(1); opacity: 0.8; }\n  50% { transform: translateY(-50%) scale(1.2); opacity: 1; }\n  100% { transform: translateY(-50%) scale(1); opacity: 0.8; }\n}"
+        },
+        {
+          "type": "snippet",
+          "name": "Disco Effect JavaScript",
+          "snippet": "// Disco effect initialization\nfunction initDiscoEffect(style) {\n  const container = document.querySelector('.lower-third-container');\n  \n  if (style === 1) {\n    // Style 1: Full background disco effect\n    const discoBg = document.createElement('div');\n    discoBg.className = 'disco-background';\n    container.appendChild(discoBg);\n  } else if (style === 2) {\n    // Style 2: Disco ball accent\n    const discoAccent = document.createElement('div');\n    discoAccent.className = 'disco-accent';\n    container.appendChild(discoAccent);\n  }\n}\n\n// Update disco effect based on style changes\nfunction updateDiscoEffect(newStyle) {\n  const container = document.querySelector('.lower-third-container');\n  const existingDisco = container.querySelector('.disco-background, .disco-accent');\n  \n  if (existingDisco) {\n    existingDisco.remove();\n  }\n  \n  initDiscoEffect(newStyle);\n}"
+        }
+      ]
+    }
+  ]
+} 

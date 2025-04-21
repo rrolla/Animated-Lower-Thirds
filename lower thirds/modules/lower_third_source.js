@@ -119,16 +119,16 @@ const LowerThirdSource = {
         update(switchState, animationTime, activeTime, inactiveTime, isPreview, slotValues) {
             this.switchOn = switchState;
             
-            // only update if not active
-            if (!this.active || isPreview) {
-                this.readables.forEach(key => this[key].update());
-                this.animationTime = animationTime;
-                this.activeTime = Math.max(animationTime, activeTime);
-                this.inactiveTime = Math.max(animationTime, inactiveTime);
-                this.name = slotValues.name;
-                this.info = slotValues.info;
-                this.logoSrc = slotValues.logoSrc;
-            }
+            // Update styles and timing regardless of active state
+            this.readables.forEach(key => this[key].update());
+            this.animationTime = animationTime;
+            this.activeTime = Math.max(animationTime, activeTime);
+            this.inactiveTime = Math.max(animationTime, inactiveTime);
+            
+            // Always update text values
+            this.name = slotValues.name;
+            this.info = slotValues.info;
+            this.logoSrc = slotValues.logoSrc;
 
             // update animations if switch changed
             if (switchState != this.active) {

@@ -306,9 +306,6 @@
 											<input :id="`alt-${index}-style`" min="1" max="4" v-model="style.value" type="number" readonly>
 											<button @click="stepDown(style, 1); restrictStyles(); $emit('styleChanged');" class="down"></button>
 											<button @click="stepUp(style, 4); restrictStyles(); $emit('styleChanged');" class="up"></button>
-											<input id="alt-1-style" class="storable" min="1" max="4" name="quantity" value="1" type="number" placeholder="1" readonly>
-											<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down"></button>
-											<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up"></button>
 										</div>
 									</div>
 									<div>
@@ -327,9 +324,9 @@
 											<button @click="stepUp(marginH, 100)" class="up"></button>
 										</div>
 										<div class="number-input input-no-icon">
-											<input :id="`alt-${index}-margin-v`" min="0" max="55" v-model="marginV.value" type="number">
+											<input :id="`alt-${index}-margin-v`" min="0" max="80" v-model="marginV.value" type="number">
 											<button @click="stepDown(marginV, 0)" class="down"></button>
-											<button @click="stepUp(marginV, 55)" class="up"></button>
+											<button @click="stepUp(marginV, 80)" class="up"></button>
 										</div>
 									</div>
 								</div>

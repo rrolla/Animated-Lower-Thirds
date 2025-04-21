@@ -3,6 +3,16 @@
 **	Author: NoeAL				**
 *********************************/
 
+:root {
+	--disco-purple: #6200EA;
+	--disco-pink: #EA3393;
+	--disco-gradient: linear-gradient(135deg, rgba(98, 0, 234, 0.95) 0%, rgba(234, 51, 147, 0.95) 100%);
+	--text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	--sparkle-color: rgba(255, 255, 255, 0.7);
+	--glow-effect: 0 0 20px rgba(255, 255, 255, 0.2);
+	--pulse-color: rgba(255, 255, 255, 0.1);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
@@ -43,6 +53,10 @@ body {
 .lower-thirds {
 	display: flex;
 	justify-content: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 /****************************
@@ -52,33 +66,40 @@ body {
 	0% {
 		opacity: 0;
 		right: -30%;
+		visibility: hidden;
 	}
 	55% {
 		opacity: 0;
 		right: -30%;
+		visibility: hidden;
+	}
+	56% {
+		visibility: visible;
 	}
 	100% {
 		opacity: 1;
 		right: 0;
+		visibility: visible;
 	}
 }
 @keyframes animation-left-slash {
 	0% {
 		opacity: 0;
-		transform: translate3d(10em, 0, 0);
+		transform: translate3d(10em, 0, 0) scale(0.8);
 	}
 	23% {
 		opacity: 0;
-		transform: translate3d(10em, 0, 0);
+		transform: translate3d(10em, 0, 0) scale(0.8);
 	}
 	50% {
 		opacity: 1;
+		transform: translate3d(0, 0, 0) scale(1);
 	}
 	75% {
-		transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0) scale(1);
 	}
 	100% {
-		transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0) scale(1);
 	}
 }
 @keyframes animation-left-background {
@@ -87,16 +108,21 @@ body {
 		padding-left: 0;
 		padding-right: 0;
 		border: 0 solid #00000000;
+		background: var(--disco-gradient);
+		backdrop-filter: blur(5px);
 	}
 	30% {
 		width: 0;
 		padding-left: 0;
 		padding-right: 0;
 		border: 0 solid #00000000;
+		background: var(--disco-gradient);
+		backdrop-filter: blur(5px);
 	}	
 	100% {
 		width: calc(100% + 2em);
-		/* width: 100% */
+		background: var(--disco-gradient);
+		backdrop-filter: blur(5px);
 	}
 }
 @keyframes animation-left-text-1 {
@@ -129,33 +155,40 @@ body {
 	0% {
 		opacity: 0;
 		left: -30%;
+		visibility: hidden;
 	}
 	55% {
 		opacity: 0;
 		left: -30%;
+		visibility: hidden;
+	}
+	56% {
+		visibility: visible;
 	}
 	100% {
 		opacity: 1;
 		left: 0;
+		visibility: visible;
 	}
 }
 @keyframes animation-right-slash {
 	0% {
 		opacity: 0;
-		transform: translate3d(-6em, 0, 0);
+		transform: translate3d(-6em, 0, 0) scale(0.8);
 	}
 	25% {
 		opacity: 0;
-		transform: translate3d(-6em, 0, 0);
+		transform: translate3d(-6em, 0, 0) scale(0.8);
 	}
 	50% {
 		opacity: 1;
+		transform: translate3d(0, 0, 0) scale(1);
 	}
 	75% {
-		transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0) scale(1);
 	}
 	100% {
-		transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0) scale(1);
 	}
 }
 @keyframes animation-right-background {
@@ -164,15 +197,21 @@ body {
 		padding-left: 0;
 		padding-right: 0;
 		border: 0 solid #00000000;
+		background: var(--disco-gradient);
+		backdrop-filter: blur(5px);
 	}
 	30% {
 		width: 0;
 		padding-left: 0;
 		padding-right: 0;
 		border: 0 solid #00000000;
+		background: var(--disco-gradient);
+		backdrop-filter: blur(5px);
 	}	
 	100% {
 		width: calc(100% + 2em);
+		background: var(--disco-gradient);
+		backdrop-filter: blur(5px);
 	}
 }
 @keyframes animation-right-text-1 {
@@ -198,199 +237,6 @@ body {
 	}
 }
 
-/******************************
-** Style 1 Animation: Cented **
-******************************/
-@keyframes animation-center-logo {
-	0% {
-		opacity: 0;
-		right: -30%;
-	}
-	55% {
-		opacity: 0;
-		right: -30%;
-	}
-	100% {
-		opacity: 1;
-		right: 0;
-	}
-}
-@keyframes animation-center-slash {
-	0% {
-		opacity: 0;
-		transform: translate3d(-6em, 0, 0);
-	}
-	25% {
-		opacity: 0;
-		transform: translate3d(-6em, 0, 0);
-	}
-	50% {
-		opacity: 1;
-	}
-	75% {
-		transform: translate3d(0, 0, 0);
-	}
-	100% {
-		transform: translate3d(0, 0, 0);
-	}
-}
-@keyframes animation-center-text-1 {
-	0% {
-		left: -102%;
-	}
-	50% {
-		left: -102%;
-	}
-	60% {
-	}	  
-	100% {
-		left: 0;
-	}
-}
-@keyframes animation-center-text-2 {
-	0% {
-		right: -102%;
-	}
-	50% {
-		right: -102%;
-	}
-	60% {
-	}
-	100% {
-		right: 0;
-	}
-}
-
-/*****************************
-** Style 3 Animation: Left/Right  **
-*****************************/
-@keyframes animation-style3-left-logo {
-	0% {
-		transform: scale(0) rotateZ(90deg);
-	}
-	40% {
-		transform: scale(1) rotateZ(0deg);
-	}
-	100% {
-		transform: scale(1) rotateZ(0deg);
-	}
-}
-@keyframes animation-style3-right-logo {
-	0% {
-		transform: scale(0) rotateZ(-90deg);
-	}
-	40% {
-		transform: scale(1) rotateZ(0deg);
-	}
-	100% {
-		transform: scale(1) rotateZ(0deg);
-	}
-}
-@keyframes animation-style3-background {
-	0% {
-		width: 0;
-		border: 0 solid #00000000;
-	}
-	30% {
-		border: 0 solid #00000000;
-	}
-	40% {
-		width: 0;
-	}	
-	100% {
-		width: calc(100% - 1em);
-	}
-}
-@keyframes animation-style3-text-1 {
-	0% {
-		bottom: -110%;
-	}
-	70% {
-		bottom: -110%;
-	}
-	100% {
-		bottom: 0;
-	}
-}
-@keyframes animation-style3-text-2 {
-	0% {
-		top: -110%;
-	}
-	70% {
-		top: -110%;
-	}
-	100% {
-		top: 0;
-	}
-}
-
-/*****************************
-** Style 4 Animations  **
-*****************************/
-
-@keyframes animation-style4-background {
-	from {
-		opacity: 0;
-	}
-}
-
-@keyframes animation-style4-background-out {
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes animation-style4-text-1 {
-	0% {
-		bottom: -110%;
-	}
-	70% {
-		bottom: -110%;
-	}
-	100% {
-		bottom: 0;
-	}
-}
-
-@keyframes animation-style4-text-2 {
-	0% {
-		top: -110%;
-	}
-	70% {
-		top: -110%;
-	}
-	100% {
-		top: 0;
-	}
-}
-
-/* Style 4 add animations */
-
-/* Set cubic bezier for all elements */
-
-.animation-in.style-4 > .text-content {
-	animation-timing-function: cubic-bezier(1,-0.01,.45,1.01);
-}
-
-/* IN animations */
-
-.animation-in.style-4 > .text-content > div:first-child div {
-	animation-name: animation-style4-text-1;
-}
-.animation-in.style-4 > .text-content > div:nth-child(2) div {
-	animation-name: animation-style4-text-2;
-	animation-delay: 200ms;
-}
-
-/* OUT animations */
-.animation-out.style-4 > .text-content > div:first-child div {
-	animation-name: animation-style4-text-1;
-	animation-delay: 200ms;
-}
-.animation-out.style-4 > .text-content > div:nth-child(2) div {
-	animation-name: animation-style4-text-2;
-}
-
 /*Logo animation*/
 .animation-in > div:first-child img {
 	animation: cubic-bezier(0.19, 0.76, 0.32, 1) 1 normal both;
@@ -408,11 +254,6 @@ body {
 .animation-out.style-1.right > div:first-child img {
 	animation-name: animation-right-logo;
 }
-/*center*/
-/* .animation-in.center > div:first-child img,
-.animation-out.center > div:first-child img {
-	animation-name: animation-center-logo;
-} */
 
 /*Graph1 and graph2 animation*/
 .animation-in > div:nth-child(1),
@@ -435,11 +276,6 @@ body {
 .animation-out.style-1.right > div:nth-child(2) {
 	animation-name: animation-right-slash;
 }
-/*center*/
-/* .animation-in.center > div:nth-child(2),
-.animation-out.center > div:nth-child(2) {
-	animation-name: animation-center-slash;
-} */
 
 /*Graph2 animation*/
 .animation-in.style-1.left > div:nth-child(4),
@@ -478,15 +314,6 @@ body {
 .animation-out.right .text-content > div:nth-child(2) div {
 	animation-name: animation-right-text-2;
 }
-/*center*/
-.animation-in.center > .text-content > div:first-child div,
-.animation-out.center > .text-content > div:first-child div {
-	animation-name: animation-center-text-1;
-}
-.animation-in.center .text-content > div:nth-child(2) div,
-.animation-out.center .text-content > div:nth-child(2) div {
-	animation-name: animation-center-text-2;
-}
 
 .alt {
     display: flex;
@@ -499,10 +326,14 @@ body {
     order: 2;
     display: flex;
     flex-direction: column;
+    padding: 0.5em 0;
+    min-height: 4em;
 }
 .alt > .text-content > .text-mask {
-    overflow: hidden;
+    overflow: visible;
     transition: height 0.1s;
+    margin: 0.1em 0;
+    position: relative;
 }
 
 .hide-anim {
@@ -517,11 +348,67 @@ body {
 }
 
 /*Name*/
+.text-content > div:first-child {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+}
+
 .text-content > div:first-child div {
     position: relative;
     display: inline-flex;
     transition: font-size 0.1s;
-    padding: 0 0.2rem;
+    padding: 0.8rem 2.5rem !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    text-shadow: var(--text-shadow) !important;
+    color: rgba(255, 255, 255, 0.98) !important;
+    margin-bottom: 0.4em;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    animation: text-glow 3s ease-in-out infinite;
+}
+
+/*Location (third element)*/
+.text-content > div:first-child div.location {
+    font-size: 0.7em !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px !important;
+    padding: 0.6rem 1.5rem !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+}
+
+/*Add animation for location when parent is animated*/
+.animation-in > .text-content > div:first-child div.location {
+    animation: cubic-bezier(0.19, 0.76, 0.32, 1) 1 normal both;
+    animation-name: animation-left-text-1;
+    animation-delay: 0.2s;
+}
+
+.animation-out > .text-content > div:first-child div.location {
+    animation: cubic-bezier(0.19, 0.76, 0.32, 1) 1 reverse both;
+    animation-name: animation-left-text-1;
+}
+
+/*left*/
+.animation-in.left > .text-content > div:first-child div.location {
+    animation-name: animation-left-text-1;
+}
+
+.animation-out.left > .text-content > div:first-child div.location {
+    animation-name: animation-left-text-1;
+}
+
+/*right*/
+.animation-in.right > .text-content > div:first-child div.location {
+    animation-name: animation-right-text-1;
+}
+
+.animation-out.right > .text-content > div:first-child div.location {
+    animation-name: animation-right-text-1;
 }
 
 /*Info*/
@@ -529,180 +416,191 @@ body {
     position: relative;
     display: inline-flex;
     transition: font-size 0.1s;
-    padding: 0 0.2rem;
+    padding: 0.6rem 2rem !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px !important;
+    text-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.4) !important;
+    color: rgba(255, 255, 255, 0.98) !important;
+    margin-top: 0.4em;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
 }
 
 /*Logo*/
-.logo{
-	order: 0;
-	overflow: hidden;
-	transition: margin 0.1s;
-	min-width: fit-content;
+.logo {
+    order: 0;
+    overflow: hidden;
+    transition: margin 0.1s;
+    min-width: fit-content;
+    padding: 0.5rem !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+    backdrop-filter: blur(5px) !important;
+    visibility: hidden;
+    display: none;
 }
+
+.logo:not(.no-logo) {
+    display: block;
+    visibility: visible;
+}
+
 .logo img {
     display: flex;
-	position: relative;
-	filter: blur(0);
-	-webkit-filter: blur(0);
-	transition: max-height 0.1s;
+    position: relative;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+    -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+    transition: max-height 0.1s;
 }
+
 .no-logo > img {
-	width: 0;
-	height: 0;
+    width: 0;
+    height: 0;
+    display: none;
 }
+
 .no-logo {
-	margin: 0!important;
+    margin: 0!important;
+    display: none;
 }
+
 .left > .logo {
-	margin-right: 0.8em;
+    margin-right: 1.2em;
 }
+
 .right > .logo {
-	margin-left: 0.8em;
+    margin-left: 1.2em;
 }
-
-/*****
-*** Style 4 Animations ***
-****/
-
-@keyframes animation-style4-background {
-	from {
-	opacity: 0;
-	}
-}
-
-@keyframes animation-style4-background-out {
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes animation-style4-text-1 {
-	0% {
-		bottom: -110%;
-	}
-	70% {
-		bottom: -110%;
-	}
-	100% {
-		bottom: 0;
-	}
-}
-
-@keyframes animation-style4-text-2 {
-	0% {
-		top: -110%;
-	}
-	70% {
-		top: -110%;
-	}
-	100% {
-		top: 0;
-	}
-}
-
-/* Style 4 add animations */
-
-/* Set cubic bezier for all elements */
-
-.animation-in.style-4 > .text-content {
-	animation-timing-function: cubic-bezier(1,-0.01,.45,1.01);
-}
-
-/* IN animations BACKGROUND */
-
-#lower-third-1.animation-in.style-4 > .text-content {
-	animation-name: animation-style4-background, animation-style4-text1;
-	animation-duration: var(--alt-1-animation-time);
-}
-#lower-third-2.animation-in.style-4 > .text-content {
-	animation-name: animation-style4-background;
-	animation-duration: var(--alt-2-animation-time);
-}
-#lower-third-3.animation-in.style-4 > .text-content {
-	animation-name: animation-style4-background;
-	animation-duration: var(--alt-3-animation-time);
-}
-#lower-third-4.animation-in.style-4 > .text-content {
-	animation-name: animation-style4-background;
-	animation-duration: var(--alt-4-animation-time);
-}
-
-
-/* OUT animations BACKGROUND */
-
-#lower-third-1.animation-out.style-4 > .text-content {
-	animation-name: animation-style4-background-out;
-	animation-fill-mode: forwards;
-	animation-duration: var(--alt-1-animation-time);
-	animation-delay: 250ms;
-}
-#lower-third-2.animation-out.style-4 > .text-content {
-	animation-name: animation-style4-background-out;
-	animation-fill-mode: forwards;
-	animation-duration: var(--alt-2-animation-time);
-	animation-delay: 250ms;
-}
-#lower-third-3.animation-out.style-4 > .text-content {
-	animation-name: animation-style4-background-out;
-	animation-fill-mode: forwards;
-	animation-duration: var(--alt-3-animation-time);
-	animation-delay: 250ms;
-}
-#lower-third-4.animation-out.style-4 > .text-content {
-	animation-name: animation-style4-background-out;
-	animation-fill-mode: forwards;
-	animation-duration: var(--alt-3-animation-time);
-	animation-delay: 250ms;
-}
-
-/* TEXT ANIMATIONS */
-
-/* IN animations */
-
-.animation-in.style-4 > .text-content > div:first-child div {
-	animation-name: animation-style4-text-1;
-}
-.animation-in.style-4 > .text-content > div:nth-child(2) div {
-	animation-name: animation-style4-text-2;
-	animation-delay: 200ms;
-}
-
-/* OUT animations */
-.animation-out.style-4 > .text-content > div:first-child div {
-	animation-name: animation-style4-text-1;
-	animation-delay: 200ms;
-}
-.animation-out.style-4 > .text-content > div:nth-child(2) div {
-	animation-name: animation-style4-text-2;
-}
-
 
 /*****Style 1*****/
 
-.style-1.left > .text-content{
-	margin-left: 1.2em;
+.style-1.left > .text-content {
+	margin-left: 0.4em;
 }
-.style-1.right > .text-content{
-	margin-right: 1.2em;
+.style-1.right > .text-content {
+	margin-right: 0.4em;
+}
+
+.style-1 {
+    overflow: hidden;
 }
 
 .style-1 > .graph-1 {
     order: 1;
-	position: relative;
-	min-width: 0.3em;
-    height: 3.5em;
+    position: absolute;
+    width: 35em;
+    height: 35em;
+    border-radius: 50% !important;
+    background: 
+        radial-gradient(circle at 30% 30%, 
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 1) 100%
+        ),
+        radial-gradient(circle at center,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.9) 100%
+        ) !important;
+    box-shadow: 
+        inset 0 0 30px rgba(255, 255, 255, 0.8),
+        0 0 40px rgba(255, 255, 255, 0.7),
+        0 0 60px rgba(98, 0, 234, 0.5),
+        0 0 80px rgba(234, 51, 147, 0.4),
+        0 0 100px rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(2px) !important;
+    overflow: visible;
+    margin: 0 0.3em;
+    align-self: center;
+    z-index: -1;
+    left: 90%;
+    top: 50%;
+    margin-left: -17.5em;
+    margin-top: -17.5em;
+    opacity: 0.9;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    mask-image: radial-gradient(circle at center, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    -webkit-mask-image: radial-gradient(circle at center, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+.style-1 > .graph-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, 
+            transparent 0%, 
+            transparent 45%, 
+            var(--sparkle-color) 45%, 
+            var(--sparkle-color) 55%, 
+            transparent 55%, 
+            transparent 100%
+        ),
+        linear-gradient(0deg, 
+            transparent 0%, 
+            transparent 45%, 
+            var(--sparkle-color) 45%, 
+            var(--sparkle-color) 55%, 
+            transparent 55%, 
+            transparent 100%
+        );
+    background-size: 40px 40px;
+    animation: disco-spin 6s linear infinite;
+    opacity: 0.8;
+    transform-origin: center;
+    mix-blend-mode: screen;
+    mask-image: radial-gradient(circle at center, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    -webkit-mask-image: radial-gradient(circle at center, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
 }
 
 .style-1 > .graph-2 {
-	order: 3;
-	z-index: -1;
-	position: absolute;
-	width: 100%;
-    height: calc(100% + 2em);
+    order: 3;
+    z-index: -2;
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 4em);
     margin: 0 -1em;
-	padding: 0 1em;
-	
-	box-sizing: border-box;
+    padding: 2em 1em;
+    box-sizing: border-box;
+    background: var(--disco-gradient) !important;
+    opacity: 1;
+    backdrop-filter: blur(4px) !important;
+    overflow: hidden;
+    border-radius: 12px !important;
+    box-shadow: 
+        0 0 20px rgba(98, 0, 234, 0.3),
+        0 0 40px rgba(234, 51, 147, 0.2) !important;
+    animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+/* Remove corner disco balls */
+.style-1 > .graph-2::before,
+.style-1 > .graph-2::after {
+    display: none;
 }
 
 .style-1.left > .graph-2 {
@@ -716,396 +614,369 @@ body {
 	padding-left: 1.8em;
 }
 
+/* Center Disco Ball */
+.style-1 > .graph-2::before {
+    content: '';
+	position: absolute;
+    width: 40px;
+    height: 40px;
+	border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--sparkle-color) 1px, transparent 2px),
+                radial-gradient(circle at 70% 70%, var(--sparkle-color) 1px, transparent 2px);
+    background-size: 8px 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    animation: disco-spin 4s linear infinite;
+}
+
+@keyframes disco-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Remove previous sparkle effects */
+.style-1 > .graph-2::before {
+    opacity: 0.6;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 
+            0 0 30px rgba(234, 51, 147, 0.6),
+            0 0 50px rgba(98, 0, 234, 0.4);
+	}
+	50% {
+		box-shadow: 
+            0 0 40px rgba(98, 0, 234, 0.6),
+            0 0 60px rgba(234, 51, 147, 0.4);
+	}
+	100% {
+		box-shadow: 
+            0 0 30px rgba(234, 51, 147, 0.6),
+            0 0 50px rgba(98, 0, 234, 0.4);
+	}
+}
+
+@keyframes separator-pulse {
+    0% {
+        opacity: 0.9;
+        box-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.4),
+            0 0 40px rgba(98, 0, 234, 0.3),
+            0 0 60px rgba(234, 51, 147, 0.2);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 
+            0 0 30px rgba(255, 255, 255, 0.5),
+            0 0 50px rgba(98, 0, 234, 0.4),
+            0 0 70px rgba(234, 51, 147, 0.3);
+    }
+    100% {
+        opacity: 0.9;
+        box-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.4),
+            0 0 40px rgba(98, 0, 234, 0.3),
+            0 0 60px rgba(234, 51, 147, 0.2);
+    }
+}
+
+/* Add subtle pulse animation to the background */
+@keyframes subtle-pulse {
+    0% {
+        background: var(--disco-gradient);
+        box-shadow: 
+            0 0 20px rgba(98, 0, 234, 0.3),
+            0 0 40px rgba(234, 51, 147, 0.2);
+    }
+    50% {
+        background: linear-gradient(135deg, 
+            rgba(98, 0, 234, 0.98) 0%, 
+            rgba(234, 51, 147, 0.98) 100%);
+        box-shadow: 
+            0 0 25px rgba(98, 0, 234, 0.4),
+            0 0 45px rgba(234, 51, 147, 0.3);
+    }
+    100% {
+        background: var(--disco-gradient);
+        box-shadow: 
+            0 0 20px rgba(98, 0, 234, 0.3),
+            0 0 40px rgba(234, 51, 147, 0.2);
+    }
+}
+
+/* Add subtle text glow animation */
+@keyframes text-glow {
+    0% {
+        text-shadow: 
+            0 1px 2px rgba(0, 0, 0, 0.5),
+            0 0 10px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        text-shadow: 
+            0 1px 2px rgba(0, 0, 0, 0.5),
+            0 0 15px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 
+            0 1px 2px rgba(0, 0, 0, 0.5),
+            0 0 10px rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* Add subtle hover effect to the disco ball */
+@keyframes disco-hover {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.02) rotate(2deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Add subtle sparkle trail effect */
+@keyframes sparkle-trail {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.style-1 > .graph-1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: sparkle-trail 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Add subtle hover effect to the disco ball */
+.style-1:hover > .graph-1 {
+    opacity: 1;
+    animation: disco-hover 2s ease-in-out infinite;
+    box-shadow: 
+        inset 0 0 35px rgba(255, 255, 255, 0.9),
+        0 0 45px rgba(255, 255, 255, 0.8),
+        0 0 65px rgba(98, 0, 234, 0.6),
+        0 0 85px rgba(234, 51, 147, 0.5),
+        0 0 105px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Ensure the disco ball stays visible during animations */
+.animation-in > .graph-1,
+.animation-out > .graph-1 {
+    opacity: 0.95;
+    transform: scale(1.02);
+}
 
 /*****Style 2*****/
 
-.style-2 > div.text-content > div:first-child div {
-	padding: 0.5rem 1.3rem;
-}
-.style-2 > div.text-content > div:first-child div::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	top: 0;
-	left: 0;	
+.style-2 {
+    overflow: hidden;
 }
 
-.style-2.center > div.text-content > div:nth-child(2) {
-	width: fit-content;
-	margin: 0 auto;
-}
-.style-2 > div.text-content > div:nth-child(2) div {
-	padding: 0.5rem 1.3rem;
-}
-.style-2 > div.text-content > div:nth-child(2) div::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	top: 0;
-	left: 0;
+.style-2 > .graph-1 {
+    display: none;
 }
 
-.style-2 > .graph-1,
 .style-2 > .graph-2 {
-	display: none;
-}
-
-
-/*****Style 3*****/
-
-.style-3 > .logo img{
-	max-height: 4.5em;
-	max-width: 4.5em;
-}
-
-.style-3 > .logo {
-    z-index: 1;
-    margin: 0;
-}
-.style-3 > .logo.no-logo {
-	min-width: 5.5em;
-	min-height: 5.5em;
-}
-
-.style-3 > .graph-1 {
-	border-radius: 50%;
-	min-width: 5.5em;
-	min-height: 5.5em;
-	position: relative;
-	z-index: 0;
-	box-sizing: border-box;
-}
-.style-3.left > .graph-1 {
-	margin-left: -5em;
-}
-.style-3.left > .logo.no-logo + .graph-1 {
-	margin-left: -6em;
-}
-.style-3.right > .graph-1 {
-	margin-right: -5em;
-}
-.style-3.right > .logo.no-logo + .graph-1 {
-	margin-right: -6em;
-}
-
-.style-3 > .graph-2 {
-	order: 3;
-	z-index: -1;
-	position: absolute;
+    order: 3;
+    z-index: -2;
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 4em);
+    margin: 0 -1em;
+    padding: 2em 1em;
     box-sizing: border-box;
-}
-.style-3 > .graph-2 {
-	height: calc(100% - 0.5em);
-}
-.style-3.left > .graph-2 {
-	left: 3.3em;
-	border-left: 0;
-}
-
-.style-3.right > .graph-2 {
-	right: 3.3em;
-	border-right: 0;
+    background: var(--disco-gradient) !important;
+    backdrop-filter: blur(5px) !important;
+    border-radius: 0 !important;
+    box-shadow: 
+        0 4px 16px rgba(98, 0, 234, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    overflow: hidden;
 }
 
-.style-3.left > .text-content {
-	/* margin-right: 0.5em; */
-	/* margin: 1em 2.5em 1em 0; FOR MULTI LINES */
-	left: 0.75em;
-	position: relative;
-}
-.style-3.right > .text-content {
-	/* margin-left: 0.5em; */
-		/* margin: 1em 0 1em 2.5em; FOR MULTI LINES */
-	right: 0.75em;
-	position: relative;
-}
-
-/*****Style 4*****/
-
-#lower-third-1.style-4 > div.text-content > div:first-child {
-	height: calc(var(--alt-1-name-size) + 1.2rem);
-    padding: 0 0.2rem 0 0;
-}
-#lower-third-2.style-4 > div.text-content > div:first-child {
-	height: calc(var(--alt-2-name-size) + 1.2rem);
-	padding: 0 0.2rem 0 0;
-}
-#lower-third-3.style-4 > div.text-content > div:first-child {
-	height: calc(var(--alt-3-name-size) + 1.2rem);
-	padding: 0 0.2rem 0 0;
-}
-#lower-third-4.style-4 > div.text-content > div:first-child {
-	height: calc(var(--alt-4-name-size) + 1.2rem);
-	padding: 0 0.2rem 0 0;
+/* Disco ball accent */
+.style-2 > .graph-2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    transform: translateY(-50%);
+    opacity: 0;
+    background: 
+        linear-gradient(45deg, 
+            rgba(255, 255, 255, 0.1) 25%, 
+            transparent 25%, 
+            transparent 75%, 
+            rgba(255, 255, 255, 0.1) 75%),
+        linear-gradient(45deg, 
+            rgba(255, 255, 255, 0.1) 25%, 
+            transparent 25%, 
+            transparent 75%, 
+            rgba(255, 255, 255, 0.1) 75%);
+    background-size: 15px 15px;
+    background-position: 0 0, 7.5px 7.5px;
+    border-radius: 50%;
+    box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.3),
+        0 0 25px rgba(255, 255, 255, 0.2);
+    z-index: 9999;
 }
 
-.style-4 > div.text-content > div:first-child div {
-	padding: 0.5rem 1.3rem;
-}
-.style-4 > div.text-content > div:first-child div::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
+/* Debug: Make sure the graph-2 element is visible */
+.style-2 > .graph-2 {
+    position: relative;
+    background: rgba(0, 0, 0, 0.1);
+    min-height: 100px;
+    border: 2px solid blue; /* Debug border */
 }
 
-#lower-third-1.style-4 > div.text-content > div:first-child {
-	background: var(--alt-1-style-color-1);
-	/* opacity: var(--alt-1-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-1-border_thickness_amount);
-    border-color: var(--alt-1-style-color-3);
-	border-radius: var(--alt-1-corners);
-	box-shadow: var(--alt-1-shadows-graph);
-}
-#lower-third-2.style-4 > div.text-content > div:first-child {
-	background: var(--alt-2-style-color-1);
-	/* opacity: var(--alt-2-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-2-border_thickness_amount);
-    border-color: var(--alt-2-style-color-3);
-	border-radius: var(--alt-2-corners);
-	box-shadow: var(--alt-2-shadows-graph);
-}
-#lower-third-3.style-4 > div.text-content > div:first-child {
-	background: var(--alt-3-style-color-1);
-	/* opacity: var(--alt-3-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-3-border_thickness_amount);
-    border-color: var(--alt-3-style-color-3);
-	border-radius: var(--alt-3-corners);
-	box-shadow: var(--alt-3-shadows-graph);
-}
-#lower-third-4.style-4 > div.text-content > div:first-child {
-	background: var(--alt-4-style-color-1);
-	/* opacity: var(--alt-4-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-4-border_thickness_amount);
-    border-color: var(--alt-4-style-color-3);
-	border-radius: var(--alt-4-corners);
-	box-shadow: var(--alt-4-shadows-graph);
+/* Simple entrance animation */
+@keyframes disco-ball-slide {
+    0% {
+        transform: translateX(100px) translateY(-50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) translateY(-50%);
+        opacity: 1;
+    }
 }
 
-#lower-third-1.style-4 > div.text-content > div:nth-child(2) {
-	height: calc(var(--alt-1-info-size) + 1.2rem);
-    padding: 0 0.2rem 0 0;
-}
-#lower-third-2.style-4 > div.text-content > div:nth-child(2) {
-	height: calc(var(--alt-2-info-size) + 1.2rem);
-	padding: 0 0.2rem 0 0;
-}
-#lower-third-3.style-4 > div.text-content > div:nth-child(2) {
-	height: calc(var(--alt-3-info-size) + 1.2rem);
-	padding: 0 0.2rem 0 0;
-}
-#lower-third-4.style-4 > div.text-content > div:nth-child(2) {
-	height: calc(var(--alt-4-info-size) + 1.2rem);
-	padding: 0 0.2rem 0 0;
-}
-.style-4 > div.text-content > div:nth-child(2) div {
-	padding: 0.5rem 1.3rem;
-}
-.style-4 > div.text-content > div:nth-child(2) div::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
+/* Apply animation when lower third is activated */
+.animation-in.style-2 > .graph-2::before {
+    animation: disco-ball-slide var(--alt-animation-time) cubic-bezier(0.19, 0.76, 0.32, 1) normal both;
+    animation-fill-mode: both;
 }
 
-#lower-third-1.style-4 > div.text-content > div:nth-child(2) {
-    background: var(--alt-1-style-color-2);
-	/* opacity: var(--alt-1-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-1-border_thickness_amount);
-    border-color: var(--alt-1-style-color-4);
-	border-radius: var(--alt-1-corners);
-	box-shadow: var(--alt-1-shadows-graph);
-}
-#lower-third-2.style-4 > div.text-content > div:nth-child(2) {
-    background: var(--alt-2-style-color-2);
-	/* opacity: var(--alt-2-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-2-border_thickness_amount);
-    border-color: var(--alt-2-style-color-4);
-	border-radius: var(--alt-2-corners);
-	box-shadow: var(--alt-2-shadows-graph);
-}
-#lower-third-3.style-4 > div.text-content > div:nth-child(2) {
-    background: var(--alt-3-style-color-2);
-	/* opacity: var(--alt-3-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-3-border_thickness_amount);
-    border-color: var(--alt-3-style-color-4);
-	border-radius: var(--alt-3-corners);
-	box-shadow: var(--alt-3-shadows-graph);
-}
-#lower-third-4.style-4 > div.text-content > div:nth-child(2) {
-    background: var(--alt-4-style-color-2);
-	/* opacity: var(--alt-4-background); */
-	box-sizing: border-box;
-	border: solid var(--alt-4-border_thickness_amount);
-    border-color: var(--alt-4-style-color-4);
-	border-radius: var(--alt-4-corners);
-	box-shadow: var(--alt-4-shadows-graph);
-}
-.style-4 > .graph-1,
-.style-4 > .graph-2 {
-	display: none;
-}
-
-
-
-/*Graph2 animation*/
-.animation-in.style-3.left > div:nth-child(4),
-.animation-out.style-3.left > div:nth-child(4) {
-	animation-name: animation-style3-background;
-}
-.animation-in.style-3.right > div:nth-child(4),
-.animation-out.style-3.right > div:nth-child(4) {
-	animation-name: animation-style3-background;
-}
-/*left*/
-.animation-in.style-3.left > div:nth-child(1), .animation-in.style-3.left > div:nth-child(2),
-.animation-out.style-3.left > div:nth-child(1), .animation-out.style-3.left > div:nth-child(2) {
-	animation-name: animation-style3-left-logo;
-}
-/*right*/
-.animation-in.style-3.right > div:nth-child(1), .animation-in.style-3.right > div:nth-child(2),
-.animation-out.style-3.right > div:nth-child(1), .animation-out.style-3.right > div:nth-child(2) {
-	animation-name: animation-style3-right-logo;
-}
-
-/*left*/
-.animation-in.style-3.left > .text-content > div:first-child div,
-.animation-out.style-3.left > .text-content > div:first-child div,
-.animation-in.style-3.right > .text-content > div:first-child div,
-.animation-out.style-3.right > .text-content > div:first-child div {
-	animation-name: animation-style3-text-1;
-}
-.animation-in.style-3.left > .text-content > div:nth-child(2) div,
-.animation-out.style-3.left > .text-content > div:nth-child(2) div,
-.animation-in.style-3.right > .text-content > div:nth-child(2) div,
-.animation-out.style-3.right > .text-content > div:nth-child(2) div {
-	animation-name: animation-style3-text-2;
-}
-
-/******Style 4*******/
-.style-4 > div.text-content > div:first-child div {
-	padding: 0.5rem 1.3rem;
-}
-.style-4 > div.text-content > div:first-child div::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-}
-.style-4 > div.text-content > div:nth-child(2) div {
-	padding: 0.5rem 1.3rem;
-}
-.style-4 > div.text-content > div:nth-child(2) div::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-}
-.style-4 > .graph-1,
-.style-4 > .graph-2 {
-	display: none;
-}
-
-/*********************************/
-
-
-/*Uncomment to avaible multiple lines*/
-/* .logo {
-    align-self: start;
-}
-.style-1 > .graph-1 {
-	align-self: start;
-}
-.alt > div.text-content > div:nth-child(2) div {
-    line-height: 1.25em;
-}
-.alt > div.text-content > div:nth-child(2) {
-	height: auto!important;
-}
-.alt.style-1.left > .text-content {
-	margin-right: 1em;
+/* Positioning */
+.style-2.left > .graph-2 {
+    left: 0;
+    margin-right: -1.8em;
+    padding-right: 1.8em;
 } 
-.alt.style-1.right > .text-content {
-	margin-left: 1em;
-} */
 
-
-/*Uncomment to invert vertical position*/
-/* #lower-third-0 {
-	top: var(--alt-0-margin-v);
-	bottom: unset!important;
+.style-2.right > .graph-2 {
+    right: 0;
+    margin-left: -1.8em;
+    padding-left: 1.8em;
 }
-#lower-third-1 {
-	top: var(--alt-1-margin-v);
-	bottom: unset!important;
-}
-#lower-third-2 {
-	top: var(--alt-2-margin-v);
-	bottom: unset!important;
-}
-#lower-third-3 {
-	top: var(--alt-3-margin-v);
-	bottom: unset!important;
-} */
 
-/*FIX HEIGHT LINE ISSUES AND MULTIPLE LINES*/
-/* .alt > div.text-content > div:first-child, .alt > div.text-content > div:nth-child(2) {height: auto!important;}
-.alt > div.text-content > div:first-child div, .alt > div.text-content > div:nth-child(2) div {line-height: 1.25em;} */
-
-
-/***Con esto no puedo quitar el fondo***/
-/* .style-3 > .logo {
-	border-radius: 50%;
-	min-width: 5.5em;
-	min-height: 5.5em;
-	margin: 0;
-	justify-content: center;
-	align-items: center;
-	display: flex;
+.style-2.left > .text-content {
+    margin-left: 0.8em;
 }
-#lower-third-0.style-3 > .logo {
-    background: var(--alt-0-style-color-1);
-	box-shadow: var(--alt-0-shadows);
-	opacity: var(--alt-0-background);
-} */
-/*repetir */
 
-/* .style-3 > .graph-1 {
-	display: none;
-} */
-/******/
+.style-2.right > .text-content {
+    margin-right: 0.8em;
+}
 
+/* Animations */
+@keyframes line-scan {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
 
-/*Uncomment to full with background in the style 1*/
-/* .style-1.alt {
-	width: 105%;
+/* Animation keyframes for background */
+@keyframes animation-left-background {
+    0% {
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border: 0 solid #00000000;
+        background: var(--disco-gradient);
+        backdrop-filter: blur(5px);
+    }
+    30% {
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border: 0 solid #00000000;
+        background: var(--disco-gradient);
+        backdrop-filter: blur(5px);
+    }    
+    100% {
+        width: calc(100% + 2em);
+        background: var(--disco-gradient);
+        backdrop-filter: blur(5px);
+    }
 }
-.style-1.left {
-	justify-content: left;
+
+@keyframes animation-right-background {
+    0% {
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border: 0 solid #00000000;
+        background: var(--disco-gradient);
+        backdrop-filter: blur(5px);
+    }
+    30% {
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border: 0 solid #00000000;
+        background: var(--disco-gradient);
+        backdrop-filter: blur(5px);
+    }    
+    100% {
+        width: calc(100% + 2em);
+        background: var(--disco-gradient);
+        backdrop-filter: blur(5px);
+    }
 }
-.style-1.right {
-	justify-content: right;
+
+/* Apply animations */
+.animation-in.style-2.left > .graph-2 {
+    animation-name: animation-left-background;
 }
-.style-1 > .graph-2 {
-	margin-left: -4em;
-	margin-right: -4em;
-} */
+
+.animation-in.style-2.right > .graph-2 {
+    animation-name: animation-right-background;
+}
+
+.animation-out.style-2.left > .graph-2 {
+    animation-name: animation-left-background;
+    animation-direction: reverse;
+}
+
+.animation-out.style-2.right > .graph-2 {
+    animation-name: animation-right-background;
+    animation-direction: reverse;
+}

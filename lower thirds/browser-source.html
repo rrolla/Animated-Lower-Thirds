@@ -32,9 +32,10 @@
                 <div class="graph-1"></div>
                 <div class="text-content">
                     <div class="text-mask">
-                        <div>{{name}}</div>
+                        <div>{{name.split('|')[0].trim()}}</div>
+                        <div class="location" v-if="name.includes('|')">{{name.split('|')[1].trim()}}</div>
                     </div>
-                    <div class="text-mask">
+                    <div class="text-mask" v-if="info.trim()">
                         <div>{{info}}</div>
                     </div>
                 </div>

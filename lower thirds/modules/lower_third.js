@@ -50,7 +50,7 @@ const LowerThird = {
       lineSpacing: [`alt2-${args.index}-line-spacing`, 0],
       font: [`alt2-${args.index}-font`, 'Open Sans, sans-serif'],
       
-      enabledLogo: [`alt2-${args.index}-logo`, true],
+      enabledLogo: [`alt2-${args.index}-logo`, false],
       logoSize: [`alt2-${args.index}-logo-size`, 0],
       logoSrc: [`alt2-${args.index}-logo-src`, undefined],
       
@@ -228,7 +228,7 @@ const LowerThird = {
     loadSlot(index) {
       this.slotIndex.value = index;
       this.name.value = this.slotNames.value[index];
-      this.info.name = this.slotInfos.value[index];
+      this.info.value = this.slotInfos.value[index];
       this.isDefaultLogo.value = this.slotLogos.value[index] == '';
 
       if (!this.isDefaultLogo.value) {

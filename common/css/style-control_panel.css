@@ -1469,6 +1469,6 @@ input.locked + .icon-btn {
   color: var(--main-color);
 }
 #lt-btns div {
- margin: 20px;
+ margin: 5px;
  border: 1px solid var(--obs-tab-border);
 }
