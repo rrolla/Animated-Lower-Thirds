@@ -14,6 +14,7 @@
 	--style2-primary: #6200EA;
 	--style2-secondary: #EA3393;
 	--style2-gradient: linear-gradient(135deg, rgba(98, 0, 234, 0.95) 0%, rgba(234, 51, 147, 0.95) 100%);
+	--style2-easing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
@@ -1017,33 +1018,37 @@ body {
 /* Style 2 Text animations */
 .animation-in.style-2 > .text-content > div:first-child div,
 .animation-in.style-2 > .text-content > div:nth-child(2) div {
-    animation: cubic-bezier(0.19, 0.76, 0.32, 1) 0.8s normal both;
-    animation-delay: 0.1s;
+    animation: var(--style2-easing) 12s normal both;
+    animation-delay: calc(0.1s + 0.3s);
 }
 .animation-out.style-2 > .text-content > div:first-child div,
 .animation-out.style-2 > .text-content > div:nth-child(2) div {
-    animation: cubic-bezier(0.19, 0.76, 0.32, 1) 0.8s reverse both;
-    animation-delay: 0s;
+    animation: var(--style2-easing) 12s reverse both;
+    animation-delay: calc(0s + 0.2s);
 }
 
 /* Style 2 left text */
 .animation-in.style-2.left > .text-content > div:first-child div,
 .animation-out.style-2.left > .text-content > div:first-child div {
     animation-name: style2-left-text-1;
+    animation-delay: calc(0.1s + 0.3s);
 }
 .animation-in.style-2.left > .text-content > div:nth-child(2) div,
 .animation-out.style-2.left > .text-content > div:nth-child(2) div {
     animation-name: style2-left-text-2;
+    animation-delay: calc(0.1s + 0.4s);
 }
 
 /* Style 2 right text */
 .animation-in.style-2.right > .text-content > div:first-child div,
 .animation-out.style-2.right > .text-content > div:first-child div {
     animation-name: style2-right-text-1;
+    animation-delay: calc(0.1s + 0.3s);
 }
 .animation-in.style-2.right > .text-content > div:nth-child(2) div,
 .animation-out.style-2.right > .text-content > div:nth-child(2) div {
     animation-name: style2-right-text-2;
+    animation-delay: calc(0.1s + 0.4s);
 }
 
 /* Ensure the disco ball stays visible during animations */
@@ -1189,47 +1194,59 @@ body {
 @keyframes style2-left-text-1 {
     0% {
         left: -102%;
+        opacity: 0;
     }
-    45% {
+    40% {
         left: -102%;
+        opacity: 0;
     }
     100% {
         left: 0;
+        opacity: 1;
     }
 }
 
 @keyframes style2-left-text-2 {
     0% {
         left: -102%;
+        opacity: 0;
     }
-    50% {
+    45% {
         left: -102%;
+        opacity: 0;
     }
     100% {
         left: 0;
+        opacity: 1;
     }
 }
 
 @keyframes style2-right-text-1 {
     0% {
         right: -102%;
+        opacity: 0;
     }
-    45% {
+    40% {
         right: -102%;
+        opacity: 0;
     }
     100% {
         right: 0;
+        opacity: 1;
     }
 }
 
 @keyframes style2-right-text-2 {
     0% {
         right: -102%;
+        opacity: 0;
     }
-    50% {
+    45% {
         right: -102%;
+        opacity: 0;
     }
     100% {
         right: 0;
+        opacity: 1;
     }
 }
